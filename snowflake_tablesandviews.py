@@ -79,30 +79,9 @@ try:
     sql = 'copy into FLIGHTS from @FLIGHTS_STAGE file_format = (type = "csv" field_delimiter = "," skip_header = 1)' \
           ' pattern = ".*partition-0[1-8].csv.gz" ON_ERROR = "ABORT_STATEMENT" '
     execute_query(conn, sql)
-    
-#    sql = 'drop table if exists student_math_mark'
-#    execute_query(conn, sql)
-
-#    sql = 'create table student_math_mark(name varchar, mark double)'
-#    execute_query(conn, sql)
-
-
-
-
-
-
-
-#    sql = 'copy into student_math_mark from @DATA_STAGE/Student_marks.csv.gz file_format = (type = "csv" field_delimiter = "," skip_header = 1)' \
-#          'ON_ERROR = "ABORT_STATEMENT" '
-#    execute_query(conn, sql)
-
-
-#close cursor
-#finally:
-#    curs.close()
 
 #close connection
-#conn.close()
+conn.close()
 
 except Exception as e:
     print(e)
